@@ -26,10 +26,10 @@ namespace LightCore.Applications.Scripts
 				Database.Open(_connection);
 
 				// SQL query to retrieve the count of accounts
-				String _query = "SELECT COUNT(*) FROM `account`";
+				String Query = "SELECT COUNT(*) FROM `account`";
 
 				// Execute the query and update the CardServerStatistics.accounts property
-				using (MySqlCommand _command = new MySqlCommand(_query, _connection))
+				using (MySqlCommand _command = new MySqlCommand(Query, _connection))
 				{
 					CardServerStatistics.accounts = Convert.ToInt32(_command.ExecuteScalar());
 				}

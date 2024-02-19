@@ -63,20 +63,20 @@ namespace LightCore.Applications.Scripts
 
 			CardPvPData.data = new List<CardPvPData>();
 
-			using (MySqlConnection _connection = Database.GetConnection(ConnectionStrings.characters))
+			using (MySqlConnection connection = Database.GetConnection(ConnectionStrings.characters))
 			{
-				String _query = "SELECT name, class, level, totalKills FROM `characters` ORDER BY totalKills DESC LIMIT 5";
+				String Query = "SELECT name, class, level, totalKills FROM `characters` ORDER BY totalKills DESC LIMIT 5";
 
-				using (MySqlCommand _command = new MySqlCommand(_query, _connection))
+				using (MySqlCommand command = new MySqlCommand(Query, connection))
 				{
-					Database.Open(_connection);
+					Database.Open(connection);
 
-					using (MySqlDataReader _reader = _command.ExecuteReader())
+					using (MySqlDataReader _reader = command.ExecuteReader())
 					{
 						while (_reader.Read())
 						{
 #pragma warning disable CS8601 // Possible null reference assignment.
-							CardPvPData _tmp = new CardPvPData
+							CardPvPData temp = new CardPvPData
 							{
 								Name = _reader["name"].ToString(),
 								Class = Convert.ToInt32(_reader["class"]),
@@ -85,7 +85,7 @@ namespace LightCore.Applications.Scripts
 							};
 #pragma warning restore CS8601 // Possible null reference assignment.
 
-							CardPvPData.data.Add(_tmp);
+							CardPvPData.data.Add(temp);
 						}
 					}
 				}
