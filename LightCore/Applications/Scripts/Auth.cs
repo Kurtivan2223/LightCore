@@ -36,17 +36,74 @@ namespace LightCore.Applications.Scripts
 			}
 		}
 
-#region Registration
+#region Bool Checks
 
 		/// <summary>
-		/// Placeholder method for user registration.
+		/// Checks if an email already exists in the authentication database.
 		/// </summary>
-		/// <remarks>
-		/// This method is intended for handling user registration logic.
-		/// </remarks>
-		public static void Register()
+		/// <param name="email">The email to check.</param>
+		/// <returns>True if the email does not exist, otherwise false.</returns>
+		public static bool CheckEmailExists(String email)
 		{
-			// ToDo: Implement user registration logic here.
+			if(!string.IsNullOrEmpty(email))
+			{
+				using (MySqlConnection connection = Database.GetConnection(ConnectionStrings.auth))
+				{
+					Database.Open(connection);
+
+					using (MySqlCommand command = new MySqlCommand("SELECT id FROM `account` WHERE email = UPPER(@email)", connection))
+					{
+						command.Parameters.AddWithValue("@email", email);
+
+						using(MySqlDataReader reader = command.ExecuteReader())
+						{
+							if(!reader.Read())
+							{
+								// No results found, email does not exist
+								Database.Close(connection);
+								return true;
+							}
+						}
+					}
+					Database.Close(connection);
+				}
+			}
+
+			return false;
+		}
+
+		/// <summary>
+		/// Checks if a username already exists in the authentication database.
+		/// </summary>
+		/// <param name="username">The username to check.</param>
+		/// <returns>True if the username does not exist, otherwise false.</returns>
+		public static bool CheckUsernameExists(String username)
+		{
+			if (!string.IsNullOrEmpty(username))
+			{
+				using (MySqlConnection connection = Database.GetConnection(ConnectionStrings.auth))
+				{
+					Database.Open(connection);
+
+					using (MySqlCommand command = new MySqlCommand("SELECT id FROM `account` WHERE username = UPPER(@username)", connection))
+					{
+						command.Parameters.AddWithValue("@username", username);
+
+						using (MySqlDataReader reader = command.ExecuteReader())
+						{
+							if (!reader.Read())
+							{
+								// No results found, username does not exist
+								Database.Close(connection);
+								return true;
+							}
+						}
+					}
+					Database.Close(connection);
+				}
+			}
+
+			return false;
 		}
 #endregion
 #endregion
