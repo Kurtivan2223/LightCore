@@ -11,10 +11,10 @@ Supported Cores in Theory:
 ### ⭐ If you liked the project, feel free to give it a shining star. ⭐
 
 <a href="https://github.com/Kurtivan2223/LightCore">
-   <img title="Star on GitHub" src="https://img.shields.io/github/stars/masterking32/WoWSimpleRegistration.svg?style=social&label=Star">
+   <img title="Star on GitHub" src="https://img.shields.io/github/stars/Kurtivan2223/LightCore.svg?style=social&label=Star">
 </a>
 <a href="https://github.com/Kurtivan2223/LightCore/fork">
-   <img title="Fork on GitHub" src="https://img.shields.io/github/forks/masterking32/WoWSimpleRegistration.svg?style=social&label=Fork">
+   <img title="Fork on GitHub" src="https://img.shields.io/github/forks/Kurtivan2223/LightCore.svg?style=social&label=Fork">
 </a>
 
 Support the original:
