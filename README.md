@@ -20,6 +20,9 @@ Supported Cores in Theory:
 Support the original:
 
 <a href="https://github.com/masterking32/WoWSimpleRegistration">
+   <img title="Star on GitHub" src="https://img.shields.io/github/stars/masterking32/WoWSimpleRegistration.svg?style=social&label=Star">
+</a>
+<a href="https://github.com/masterking32/WoWSimpleRegistration/fork">
    <img title="Fork on GitHub" src="https://img.shields.io/github/forks/masterking32/WoWSimpleRegistration.svg?style=social&label=Fork">
 </a>
 
